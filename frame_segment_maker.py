@@ -6,7 +6,7 @@ import sys
 def main():
     argc = len(sys.argv)
     if (argc != 2):
-        print("Useage: python3 frame_segment_maker.py <video_name>")
+        print("Usage: python3 frame_segment_maker.py <video_name>")
         exit()
 
     cap = cv2.VideoCapture(sys.argv[1])
