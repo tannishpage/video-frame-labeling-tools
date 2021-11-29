@@ -42,7 +42,7 @@ def convert_file(file_name):
         video_id = file_name.split(".txt")[0]
     else:
         print("File name {} not in correct format, couldn't determin video id".format(file_name))
-        exit(1)
+        return ""
 
     file = open(file_name, "r").read()
     sign_seqs = convert_seqs_to_tuples(file.split("\n\n")[0].split("\n")[1:], 1)
@@ -81,7 +81,10 @@ def main():
         os.chdir(sys.argv[1])
         for file_name in file_names:
             print("Converting File {}....".format(file_name), end='')
-            data_table_file.write(convert_file(file_name))
+            line = convert_file(file_name)
+            if line == "":
+                continue
+            data_table_file.write(line)
             print("Done")
 
         data_table_file.close()
