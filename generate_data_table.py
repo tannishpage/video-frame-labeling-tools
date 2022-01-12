@@ -70,7 +70,10 @@ def main():
         exit(1)
 
     if os.path.isfile(sys.argv[1]):
-        convert_file(sys.argv[1])
+        line = convert_file(sys.argv[1])
+        file = open("single_file.txt", 'w')
+        file.write(line)
+        file.close()
         exit(0)
     else:
         while os.path.exists(data_table_file_name):
